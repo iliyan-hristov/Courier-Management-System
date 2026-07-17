@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship a Package</title>
+    <link rel="stylesheet" th:href="@{/css/ship.css}">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>Ship a Package</h2>
+        <p>Enter the shipment details below to check your delivery price.</p>
+
+        <form th:action="@{/couriers}" method="post">
+
+            <div class="form-group">
+                <label for="fromCity">Starting City</label>
+                <input type="text" id="fromCity" name="fromCity" placeholder="e.g. Vidin" required>
+            </div>
+
+            <div class="form-group">
+                <label for="toCity">Destination City</label>
+                <input type="text" id="toCity" name="toCity" placeholder="e.g. Burgas" required>
+            </div>
+
+            <div class="form-group">
+                <label for="receiverName">Receiver Name</label>
+                <input type="text" id="receiverName" name="receiverName" placeholder="e.g. Iliyan H." required>
+            </div>
+
+            <div class="form-group">
+                <label for="shipmentType">Shipment Type</label>
+                <select id="shipmentType" name="shipmentType" required>
+                    <option value="">Select type</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Express">Express</option>
+                    <option value="Fragile">Fragile</option>
+                </select>
+            </div>
+
+
+            <button type="submit" class="login-btn">Check Price</button>
+        </form>
+
+        <div th:if="${price}" class="logout-msg" style="margin-top: 20px;">
+            <p>
+                <strong>From:</strong> <span th:text="${fromCity}"></span> →
+                <strong>To:</strong> <span th:text="${toCity}"></span>
+            </p>
+            <p><strong>Type:</strong> <span th:text="${shipmentType}"></span></p>
+            <p><strong>Estimated Price:</strong>
+                <span style="color:#ff5e62; font-weight:700;" th:text="${price + ' BGN'}"></span>
+            </p>
+
+        </div>
+
+        <div class="footer">
+            <a href="/login">Back</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

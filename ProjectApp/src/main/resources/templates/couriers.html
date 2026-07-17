@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Courier</title>
+    <link rel="stylesheet" th:href="@{/css/couriers.css}">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>Choose Your Courier</h2>
+        <p>Select a courier service to view price and details.</p>
+
+        <div class="courier-grid">
+
+            <div class="courier-card">
+                <div class="courier-circle"></div>
+                <h3>🚀 FastShip</h3>
+                <p>Fastest delivery — arrives within <strong>24 hours</strong>.</p>
+                <p class="price">Base Rate: <strong>35 BGN</strong></p>
+                <form th:action="@{/ship/price/confirm}" method="post" style="margin: 10px 0;">
+                    <input type="hidden" name="fromCity" th:value="${fromCity}">
+                    <input type="hidden" name="toCity" th:value="${toCity}">
+                    <input type="hidden" name="receiverName" th:value="${receiverName}">
+                    <input type="hidden" name="shipmentType" th:value="${shipmentType}">
+                    <input type="hidden" name="courierType" value="EXPRESS">
+                    <input type="hidden" name="price" value="35.00">
+                    <button type="submit" class="courier-btn">Choose</button>
+                </form>
+            </div>
+
+            <div class="courier-card">
+                <div class="courier-circle sky"></div>
+                <h3>✈️ SkyExpress</h3>
+                <p>Reliable air service — arrives in <strong>2 days</strong>.</p>
+                <p class="price">Base Rate: <strong>25 BGN</strong></p>
+                <form th:action="@{/ship/price/confirm}" method="post" style="margin: 10px 0;">
+                    <input type="hidden" name="fromCity" th:value="${fromCity}">
+                    <input type="hidden" name="toCity" th:value="${toCity}">
+                    <input type="hidden" name="receiverName" th:value="${receiverName}">
+                    <input type="hidden" name="shipmentType" th:value="${shipmentType}">
+                    <input type="hidden" name="courierType" value="STANDARD">
+                    <input type="hidden" name="price" value="25.00">
+                    <button type="submit" class="courier-btn">Choose</button>
+                </form>
+            </div>
+
+            <div class="courier-card">
+                <div class="courier-circle eco"></div>
+                <h3>🌱 EcoCourier</h3>
+                <p>Budget-friendly and eco-conscious — arrives in <strong>3–5 days</strong>.</p>
+                <p class="price">Base Rate: <strong>18 BGN</strong></p>
+                <form th:action="@{/ship/price/confirm}" method="post" style="margin: 10px 0;">
+                    <input type="hidden" name="fromCity" th:value="${fromCity}">
+                    <input type="hidden" name="toCity" th:value="${toCity}">
+                    <input type="hidden" name="receiverName" th:value="${receiverName}">
+                    <input type="hidden" name="shipmentType" th:value="${shipmentType}">
+                    <input type="hidden" name="courierType" value="ECONOMY">
+                    <input type="hidden" name="price" value="18.00">
+                    <button type="submit" class="courier-btn">Choose</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="/ship">Back</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
