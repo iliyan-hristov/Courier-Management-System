@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Statistics</title>
+    <link rel="stylesheet" th:href="@{/statistics.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Order Statistics Dashboard</h1>
+
+    <table class="statistics-table">
+        <thead>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Total Orders</td>
+            <td th:text="${statistics.totalOrders}">0</td>
+        </tr>
+        <tr>
+            <td>Total Revenue</td>
+            <td th:text="'$' + ${#numbers.formatDecimal(statistics.totalRevenue, 1, 2)}">$0.00</td>
+        </tr>
+        <tr>
+            <td>Average Order Value</td>
+            <td th:text="'$' + ${#numbers.formatDecimal(statistics.averageOrderValue, 1, 2)}">$0.00</td>
+        </tr>
+        <tr>
+            <td>Average Delivery Time</td>
+            <td th:text="${#numbers.formatDecimal(statistics.averageDeliveryTime, 1, 1)} + ' minutes'">0.0 minutes</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Sent Orders</h2>
+    <table class="statistics-table">
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Price</th>
+            <th>Delivery Time</th>
+            <th>Created At</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${orders}">
+            <td th:text="${order.id}">1</td>
+            <td th:text="'$' + ${#numbers.formatDecimal(order.price, 1, 2)}">$0.00</td>
+            <td th:text="${order.deliveryTimeMinutes} + ' min'">30 min</td>
+            <td th:text="${#temporals.format(order.createdAt, 'yyyy-MM-dd HH:mm:ss')}">2024-01-01 12:00:00</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
