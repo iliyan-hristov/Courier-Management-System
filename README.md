@@ -2,8 +2,6 @@
 
 A full-stack Courier Management System built with **Java** and **Spring Boot** for managing shipments, couriers, order tracking, and price calculations. The project demonstrates modern backend development practices using a layered architecture and RESTful APIs.
 
----
-
 ## Features
 
 * Create and manage shipments
@@ -14,8 +12,6 @@ A full-stack Courier Management System built with **Java** and **Spring Boot** f
 * Administrative dashboard
 * REST API for client-server communication
 * Layered architecture (Controller → Service → Repository)
-
----
 
 ## Technologies
 
@@ -38,31 +34,13 @@ A full-stack Courier Management System built with **Java** and **Spring Boot** f
 * Thymeleaf
 * HTML5
 * CSS3
-* Bootstrap
 * JavaScript
-
-## Project Structure
-
-├── Project-api/          # REST API
-├── ProjectApp/           # Web Application
-└── docs/                 # Documentation & Images
-
 
 ## Architecture
 
 The application follows a layered architecture:
 
-
-Controller
-      │
-Service
-      │
-Repository
-      │
-Database
-
-
-
+Controller -> Service -> Repository -> Database
 
 ## Main Modules
 
@@ -72,7 +50,6 @@ Database
 * Shipment Tracking
 * Price Calculator
 * Administration Panel
-
 
 ## REST API
 
@@ -95,9 +72,6 @@ Example endpoints:
 * PDF shipping labels
 * Docker support
 * Unit & Integration Tests
-* CI/CD Pipeline
-
----
 
 ## Learning Objectives
 
@@ -110,9 +84,3 @@ This project was developed to improve practical experience with:
 * Database design
 * Layered software architecture
 * Backend and frontend integration
-
----
-
-## Author
-
-Developed by **Your Name** as a personal portfolio project.
