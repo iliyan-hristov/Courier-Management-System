@@ -1,0 +1,133 @@
+@import url('background.css');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: #f4f6f8;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+select, button {
+    padding: 8px 12px;
+    font-size: 15px;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background: #eaeaea;
+    text-align: left;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    text-decoration: none;
+    background: #2196F3;
+    color: white;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background: #1b7cd1;
+}
+
+.accept-btn, .delete-btn {
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: 0.2s !important;
+    margin: 2px !important;
+    min-width: 80px !important;
+    width: 80px !important;
+    height: 36px !important;
+    box-sizing: border-box !important;
+    display: inline-block !important;
+    text-align: center !important;
+    line-height: 20px !important;
+}
+
+.accept-btn {
+    background: #4CAF50 !important;
+    color: white !important;
+}
+
+.accept-btn:hover {
+    background: #45a049 !important;
+}
+
+.delete-btn {
+    background: #f44336 !important;
+    color: white !important;
+}
+
+.delete-btn:hover {
+    background: #da190b !important;
+}
+
+.stats-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    text-decoration: none;
+    background: #4CAF50;
+    color: white;
+    border-radius: 6px;
+    transition: 0.2s;
+    width: 150px;
+    text-align: center;
+}
+
+.stats-btn:hover {
+    background: #45a049;
+}

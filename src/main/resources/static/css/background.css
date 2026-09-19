@@ -1,0 +1,14 @@
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://image.similarpng.com/file/similarpng/original-picture/2021/01/Delivery-service-with-car-on-transparent-background-PNG.png");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    z-index: -1;
+}

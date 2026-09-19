@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courier Dashboard - Home</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/background.css}">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-card">
+        <h1>Welcome, <span th:if="${username}" th:text="${username}"></span>
+            <div th:if="${successfulRegistration}" class="success" th:text="${successfulRegistration}"></div>
+        </h1>
+
+        <div class="main-buttons">
+            <a href="/track" class="main-btn track-btn">
+                <div>📦 Track</div>
+                <div class="btn-subtitle">your shipments</div>
+            </a>
+            <a href="/ship" class="main-btn ship-btn">
+                <div>🚚 Ship</div>
+                <div class="btn-subtitle">new delivery</div>
+            </a>
+            <a href="/contact" class="main-btn contact-btn">
+                <div>📞 Contact</div>
+                <div class="btn-subtitle">our team for help</div>
+            </a>
+            <a href="/orders" class="main-btn orders-btn">
+                <div>📋 My Orders</div>
+                <div class="btn-subtitle">list</div>
+            </a>
+        </div>
+
+
+        <div class="footer">
+            <h4>Delivery App <a href="/logout"> Log out </a></h4>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

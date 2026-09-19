@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Your Delivery</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/rating.css}">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>Rate Your Courier</h2>
+        <p th:text="'Tracking #: ' + ${shipment.trackingNumber}"></p>
+
+
+        <form th:action="@{'/orders/rate/' + ${shipment.id}}" method="post" id="ratingForm">
+            <div class="stars">
+                <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+                <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+                <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+                <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+                <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+            </div>
+
+            <button type="submit" class="login-btn">Submit Rating</button>
+        </form>
+
+        <div class="footer">
+            <a href="/orders">Back to Orders</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

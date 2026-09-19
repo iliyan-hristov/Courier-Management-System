@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Price Calculator</title>
+    <link rel="stylesheet" th:href="@{/css/price.css}">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>Let's Ship 🚀</h2>
+
+        <div th:if="${price}" class="logout-msg" style="margin-top: 25px;">
+            <p><strong>From:</strong> <span th:text="${fromCity}"></span> →
+                <strong>To:</strong> <span th:text="${toCity}"></span></p>
+            <p><strong>Shipment Type:</strong> <span th:text="${shipmentType}"></span></p>
+            <p><strong>Estimated Price:</strong>
+                <span style="color:#ff5e62; font-weight:700;" th:text="${price + ' BGN'}"></span></p>
+
+            <form th:action="@{/price/confirm}" method="post" style="margin-top:15px;">
+                <input type="hidden" name="fromCity" th:value="${fromCity}">
+                <input type="hidden" name="toCity" th:value="${toCity}">
+                <input type="hidden" name="shipmentType" th:value="${shipmentType}">
+                <input type="hidden" name="price" th:value="${price}">
+                <input type="hidden" name="receiverName" th:value="${receiverName}">
+
+                <button type="submit" class="login-btn"
+                        style="background:linear-gradient(135deg, #ff5e62, #ff9966);">
+                    Confirm Shipment
+                </button>
+            </form>
+        </div>
+
+        <div th:if="${success}" class="logout-msg" th:text="${success}"
+             style="margin-top:20px; background-color:#e6f4ff; color:#00509e; border:1px solid #00509e;"></div>
+
+        <div class="footer">
+            <a href="/login">Back</a>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
