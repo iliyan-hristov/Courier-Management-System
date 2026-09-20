@@ -1,52 +1,52 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeliveryApp | Register</title>
-    <link rel="stylesheet" th:href="@{/css/register.css}">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"><head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&amp;display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/css/form.css">
+  <title>Register</title>
 </head>
 <body>
 
-<div class="register-container">
-    <div class="register-card">
-        <h2>Create Account</h2>
-        <p>Join DeliveryApp today</p>
+<main>
+  <section class="section full-height">
 
-        <form th:action="@{/register}" method="post" th:object="${registerRequest}">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" placeholder="Your name" id="username" th:field="*{username}">
-                <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" th:field="*{email}" placeholder="Your email" required>
-                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></div>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" th:field="*{password}" placeholder="Create password" required>
-                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></div>
-            </div>
-
-            <button type="submit" class="register-btn">Sign Up</button>
-
-            <div th:if="${param.success}" class="success">
-                Registration successful! Please log in.
-            </div>
-            <div th:if="${param.error}" class="error">
-                There was an error with your registration. Please try again.
-            </div>
-        </form>
-
-        <div class="footer">
-            <a th:href="@{/}">Already have an account? Login</a>
-        </div>
+    <div class="container">
+      <a href="/" class="logo-big">
+        <img src="/images/smart-wallet-text-only.png" alt="Logo Image">
+      </a>
     </div>
-</div>
 
+    <form class="form" th:action="@{/register}" th:method="POST" th:object="${registerRequest}">
+
+      <h3>Register Here</h3>
+
+      <label for="username">Username</label>
+      <input type="text" placeholder="Username" id="username" th:field="*{username}">
+      <p class="alert-warning" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error message</p>
+      <p class="alert-warning" th:if="${errorMessage}" th:text="${errorMessage}"></p>
+
+      <label for="password">Password</label>
+      <input type="password" placeholder="Password" id="password" th:field="*{password}">
+      <p class="alert-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error message</p>
+
+      <label for="country">Country</label>
+      <select id="country" th:field="*{country}">
+        <option th:each="country : ${T(payApp.user.model.Country).values()}" th:value="${country}" th:text="${country.getDisplayName()}">abv</option>
+      </select>
+
+      <button>Register</button>
+      <p class="form-already">Already have an account? <a href="/login">Login</a>!</p>
+    </form>
+
+  </section>
+</main>
+<th:block th:insert="fragments/my-fragments :: my-website-footer"></th:block>
 </body>
 </html>
